@@ -8,7 +8,7 @@ import { AppModule } from 'src/app.module';
 import { HttpExceptionsFilter } from 'src/common/filters/http-exceptions-filter';
 import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import path from 'path';
+import path, { join } from 'path';
 import { writeFileSync } from 'fs';
 
 async function bootstrap() {
@@ -37,6 +37,13 @@ async function bootstrap() {
     prefix: '/public/',
     maxAge: 0,
   });
+
+  //配置模板引擎
+  app.useStaticAssets(join(__dirname, '..', 'views'), {
+    prefix: '/views/',
+  });
+  app.setBaseViewsDir('views');
+  app.setViewEngine('ejs');
 
   app.setGlobalPrefix(prefix);
   // 全局验证
@@ -86,9 +93,30 @@ async function bootstrap() {
   // 获取真实 ip
   app.use(requestIpMw({ attributeName: 'ip' }));
   //服务端口
-  const port = config.get<number>('app.port') || 8080;
+  const port = config.get<number>('app.port') || 3000;
   await app.listen(port);
-
-  console.log(`Nest-Admin 服务启动成功`, '\n', '服务地址', `http://localhost:${port}${prefix}/`, '\n', 'swagger 文档地址', `http://localhost:${port}${prefix}/swagger-ui/`);
+  console.log('                            _ooOoo_');
+  console.log('                           o8888888o');
+  console.log('                           88" . "88');
+  console.log('                           (| -_- |)');
+  console.log('                           O\\  =  /O');
+  console.log("                        ____/`---'\\____");
+  console.log("                      .'  \\||     ||/  `.");
+  console.log('                     /  \\||||  :  ||||/  \\ ');
+  console.log('                    /  _||||| -:- |||||-  \\ ');
+  console.log('                    |   | |||  -  ||| |   |');
+  console.log("                    | \\_|  ''\\---/''  |   |");
+  console.log('                    \\  .-\\__  `-`  ___/-. /');
+  console.log("                  ___`. .'  /--.--\\  `. . __");
+  console.log("               .'''< ```.___\\_<|>_/___. ```>'''.");
+  console.log('              | | :  `- \\`.;`\\ _ /`;.`/ - ` : | |');
+  console.log('              \\  \\ `-.   \\_ __\\ /__ _/   .-` /  /');
+  console.log("         ======`-.____`-.___\\_____/___.-`____.-'======");
+  console.log('         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
+  console.log('                // 佛祖保佑 永不宕机 永无BUG //');
+  console.log('               //  程序启动...Nest-Admin 服务启动成功' + '//');
+  console.log('🚀服务地址', `http://localhost:${port}${prefix}/`);
+  console.log('🚀模板引擎启动成功：', `http://localhost:${port}${prefix}/html/`);
+  console.log('🚀swagger 文档地址', `http://localhost:${port}${prefix}/swagger-ui/`);
 }
 bootstrap();

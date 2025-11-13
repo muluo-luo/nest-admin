@@ -13,6 +13,9 @@ import { SystemModule } from './module/system/system.module';
 import { CommonModule } from './module/common/common.module';
 import { MonitorModule } from './module/monitor/monitor.module';
 
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
 @Global()
 @Module({
   imports: [
@@ -46,6 +49,7 @@ import { MonitorModule } from './module/monitor/monitor.module';
     MonitorModule,
   ],
   providers: [
+    AppService,
     {
       provide: APP_GUARD,
       useClass: JwtAuthGuard,
@@ -59,5 +63,6 @@ import { MonitorModule } from './module/monitor/monitor.module';
       useClass: PermissionGuard,
     },
   ],
+  controllers: [AppController],
 })
 export class AppModule {}

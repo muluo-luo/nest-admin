@@ -18,12 +18,10 @@ A out of the box backend management system based on the latest version of Nestjs
 
 </div>
 
-- Preview: https://nest-admin.dooring.vip/
-- Domestic Mirror: https://gitee.com/tao-zhi/nest-admin
 
-## 1.0 is out! 🎉🎉🎉
+## 1.5 is out! 🎉🎉🎉
 
-Nest-Admin 1.0.0
+Nest-Admin 1.5.0
 
 ## Built in features
 

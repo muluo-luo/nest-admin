@@ -1,6 +1,6 @@
 {
-  "name": "nest-v10",
-  "version": "0.0.1",
+  "name": "nest-v11",
+  "version": "0.5.0",
   "description": "",
   "author": "",
   "private": true,
@@ -44,6 +44,7 @@
     "cos-nodejs-sdk-v5": "^2.13.4",
     "cron": "^3.3.1",
     "dayjs": "^1.11.10",
+    "ejs": "^3.1.10",
     "exceljs": "^4.4.0",
     "express-rate-limit": "^7.1.5",
     "fs-extra": "^11.2.0",
